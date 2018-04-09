@@ -206,7 +206,7 @@ function woocommerce_tech_autho_init() {
             $redirect_url = '';
             $this->msg['class']     = 'error';
             $this->msg['message']   = $this->failed_message;
-            $order_id = str_replace('Anthropose-', '', $invoiceNo );
+            $order_id = str_replace('HBL-', '', $invoiceNo );
             $order                  = new WC_Order( $order_id );
 
             $secret_key               = ($this->secret_key != '') ? $this->secret_key : '';
@@ -256,8 +256,11 @@ function woocommerce_tech_autho_init() {
 
             }else{
 
-               wc_add_notice('Hey Hey! Transaction could not go through. Please contact info@anthropose.com','notice');
-               $order->add_order_note('Hey Hey! Transaction could not go through. Please contact info@anthropose.com');
+
+               $error_notice = 'Hey Hey! Transaction could not go through. Please contact info@yourwebiste.com';
+
+               wc_add_notice($error_notice,'notice');
+               $order->add_order_note($error_notice);
             }
             $redirect_url = $order->get_checkout_order_received_url();
             $this->web_redirect( $redirect_url); exit;
@@ -303,7 +306,7 @@ function woocommerce_tech_autho_init() {
 
 
          $amount = sprintf('%010d', $order->order_total).$suffix;
-         $new_order_id = 'Anthropose-'.$order_id;
+         $new_order_id = 'HBL-'.$order_id;
 
          $signatureString = $this->payment_gateway_id.$new_order_id.$amount.$this->currency_code.'Y';
 
