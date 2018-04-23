@@ -92,7 +92,7 @@ function woocommerce_tech_autho_init() {
                   'title'        => __('Title:', 'tech'),
                   'type'         => 'text',
                   'description'  => __('This controls the title which the user sees during checkout.', 'tech'),
-                  'default'      => __('Authorize.net', 'tech')),
+                  'default'      => __('HBL Payments', 'tech')),
             'description'  => array(
                   'title'        => __('Description:', 'tech'),
                   'type'         => 'textarea',
